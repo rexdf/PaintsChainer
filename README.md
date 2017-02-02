@@ -47,7 +47,7 @@ If you failed to perform the following steps, you will see this message. Uninsta
 ```
 
 - Step by step guide for installing chainer (Windows/anaconda3):
-(Tested on Win10 64-bit, Anaconda 4.3.0, Visual Studio 2015 Update 3)
+(Tested on Win10 64-bit, Anaconda 4.3.0 with Python 3.5, Visual Studio 2015 Update 3)
  - Step1: Install "Visual Studio 2015"
  - Step2: Install "Anaconda 3" and run `conda update anaconda`
  - Step3: Install "Nvidia CUDA"
