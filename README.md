@@ -46,6 +46,43 @@ If you failed to perform the following steps, you will see this message. Uninsta
     Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ Build Tools": http://landinghub.visualstudio.com/visual-cpp-build-tools
 ```
 
+- Step by step guide for installing chainer (Windows/anaconda3):
+(Tested on Win10 64-bit, Anaconda 4.3.0, Visual Studio 2015 Update 3)
+ - Step1: Install "Visual Studio 2015"
+ - Step2: Install "Anaconda 3" and run `conda update anaconda`
+ - Step3: Install "Nvidia CUDA"
+ - Step4: Register and download "NVIDIA Deep Learning SDK"
+ - Step5: Unzip `cudnn-*-windows*-x64-v**.zip` to any folder
+ - Step6: Add a new bat file `run.bat` in `cudnn\cuda` folder, and edit it
+ - Step7: Start `run.bat`
+ - Step8: `pip install chainer --no-cache-dir -vvvv` (<- Do this AT LAST!)
+
+Next time when you want to start web host, you can start `run.bat`.
+
+- run.bat
+
+```
+@echo off
+
+REM You maybe need to edit following two line
+
+SET PaintsChainer_PATH=K:\proj\PaintsChainer
+SET Anaconda3_PATH=E:\Anaconda3
+
+SET path=%~dp0;%~dp0bin;%path%
+
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
+
+SET LIB=%~dp0lib;%~dp0lib\x64;%LIB%
+SET INCLUDE=%~dp0include;%INCLUDE%
+SET LIBPATH=%~dp0lib;%~dp0lib\x64;%LIBPATH%
+
+cd /d %PaintsChainer_PATH%
+
+start %Anaconda3_PATH%\Scripts\activate.bat
+```
+
+
 ## Starting web host
 UI is html based. using wPaint.js
 Server side is very basic python server
